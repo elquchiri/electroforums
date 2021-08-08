@@ -1,19 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">ElectroForums</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-users "></i> Communautée
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-fire"></i> #Tendences
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-life-ring fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+            <li class="nav-item d-flex">
+                <a class="nav-link" href="#">
+                    Se connecter
+                </a>
+            </li>
+            <li class="nav-item d-flex">
+                <a class="nav-link" href="#">
+                    S'inscrire
+                </a>
+            </li>
+            <li class="nav-item d-flex">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-search"></i>
+                </a>
+            </li>
+        </div>
+    </div>
+</nav>
+
+{% block body %}{% endblock %}
+
+<footer class="mt-5">
+    <div class="container">
+        <span class="text-muted">Powered by <a href="">Electro Forums</a>&copy; 1.0.0</span>
+    </div>
+</footer>
+</body>
 </html>

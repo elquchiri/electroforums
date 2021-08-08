@@ -3,5 +3,5 @@
 #    controller: App\Controller\DefaultController::index
 
 hello_page:
-  path: '/hello'
-  controller: App\Controller\HomeController:hello
+  path: '/'
+  controller: App\Controller\HomeController:index

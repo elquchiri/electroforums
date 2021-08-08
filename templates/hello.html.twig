@@ -1,5 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Hello world !</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-borderless forums-table mt-5">
+                    {% for category in categories  %}
+                    <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">{{ category.category }}</th>
+                        <th scope="col">Mis à jours</th>
+                        <th scope="col" class="text-center">
+                            <i class="fa fa-comments"></i>
+                        </th>
+                        <th class="text-center">Modérateurs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for forum in category.forums %}
+                    <tr>
+                        <th scope="row" class="text-center">
+                            <i class="fa fa-{{ forum.icon }} fa-2x"></i>
+                        </th>
+                        <td class="title">
+                            <a href="">{{ forum.title }}</a>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </td>
+                        <td>
+                            @mdo
+                            <div id="emailHelp" class="form-text">Participant</div>
+                        </td>
+                        <td class="text-center">547 &middot; 1458</td>
+                        <td class="controllers">
+                            Mohamed EL QUCHIRI + Sam Amanda
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                    {% endfor %}
+
+                    <caption>57 forums | 457 réponses</caption>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
