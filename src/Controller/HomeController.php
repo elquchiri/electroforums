@@ -9,47 +9,24 @@ use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends AbstractController
 {
+
+
+    /**
+     * @var \App\Repository\CategoryRepository
+     */
+    private $categoryRepository;
+
+    public function __construct(
+        \App\Repository\CategoryRepository $categoryRepository
+    )
+    {
+
+        $this->categoryRepository = $categoryRepository;
+    }
+
     public function index(): Response {
-        $data = [
-            [
-                'category' => "Forum de bienvenue",
-                'forums' => [
-                    [
-                        'title' => "Forum du bienvenue",
-                        'updated' => "@mdo",
-                        'count' => "458 . 4587",
-                        'activity' => "Ok",
-                        'icon' => 'clock-o'
-                    ],
-                    [
-                        'title' => "Forum du bienvenue 2",
-                        'updated' => "@mdo",
-                        'count' => "458 . 4587",
-                        'activity' => "Ok",
-                        'icon' => 'check'
-                    ]
-                ]
-            ],
-            [
-                'category' => "Développement informatique",
-                'forums' => [
-                    [
-                        'title' => "Design & Sketching",
-                        'updated' => "@mdo",
-                        'count' => "458 . 4587",
-                        'activity' => "Ok",
-                        'icon' => 'users'
-                    ],
-                    [
-                        'title' => "L'univers PHP",
-                        'updated' => "@mdo",
-                        'count' => "458 . 4587",
-                        'activity' => "Ok",
-                        'icon' => 'code'
-                    ]
-                ]
-            ]
-        ];
-        return $this->render('hello.html.twig', ['categories' => $data]);
+        $categories = $this->categoryRepository->findAll();
+        dump($this->categoryRepository->count([]));
+        return $this->render('home.html.twig', ['categories' => $categories]);
     }
 }
